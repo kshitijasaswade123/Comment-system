@@ -2,7 +2,7 @@ const Comment= require("../Model/Comment_Model");
 
 exports.getdata = async (req, res) => {
   try {
-    const data = await comment.find();
+    const data = await Comment.find();
     return res.json({
       errors: false,
       data: data,
@@ -17,7 +17,7 @@ exports.getdata = async (req, res) => {
 
 exports.postData = async (req, res) => {
   try {
-    const data = await comment.create(req.body);
+    const data = await Comment.create(req.body);
     return res.json({
       errors: false,
       data: data,
@@ -32,7 +32,7 @@ exports.postData = async (req, res) => {
 
 exports.putData = async (req, res) => {
   try {
-    const data = await comment.findByIdAndUpdate(req.params.id, req.body, {
+    const data = await Comment.findByIdAndUpdate(req.params.id, req.body, {
       new: true,
     });
     return res.json({
@@ -49,7 +49,7 @@ exports.putData = async (req, res) => {
 
 exports.deleteData = async (req, res) => {
   try {
-    const data = await comment.findByIdAndDelete(req.params.id);
+    const data = await Comment.findByIdAndDelete(req.params.id);
     return res.json({
       errors: false,
       data: data,
